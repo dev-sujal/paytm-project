@@ -1,0 +1,11 @@
+{
+    "extends": "@repo/typescript-config/base.json",
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@repo/db/*": ["./src/*"]
+      }
+    },
+    "include": ["src", "prisma/seed.ts"],
+    "exclude": ["node_modules"]
+  }
