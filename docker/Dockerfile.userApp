@@ -1,0 +1,24 @@
+FROM node:lts-alpine
+
+WORKDIR /usr/sr/app
+
+COPY package.json pnpm-lock.yaml turbo.json ./
+
+COPY apps ./apps
+
+COPY packages ./packages
+
+# Install pnpm globally
+RUN npm install -g pnpm
+
+# Install dependencies
+RUN pnpm install
+
+# Can you add a script to the global package.json that does this?
+RUN pnpm run db:generate
+
+# building only single next app (user-app)
+RUN pnpm run build-user-app
+
+# running only one user app
+CMD ["npm", "run", "start-user-app"]

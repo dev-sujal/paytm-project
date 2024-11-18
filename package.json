@@ -6,7 +6,9 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "db:generate": "cd packages/db && pnpm dlx prisma generate && cd ../.."
+    "db:generate": "pnpm --filter db run db:generate",
+    "build-user-app": "pnpm --filter user-app run build",
+    "start-user-app": "pnpm --filter user-app run start"
   },
   "devDependencies": {
     "prettier": "^3.2.5",
