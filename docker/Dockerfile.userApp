@@ -2,7 +2,7 @@ FROM node:lts-alpine
 
 WORKDIR /usr/sr/app
 
-COPY package.json pnpm-lock.yaml turbo.json ./
+COPY package.json pnpm*.yaml turbo.json ./
 
 COPY apps ./apps
 
